@@ -11,16 +11,18 @@ import (
 	"runtime"
 	"sync"
 
+	"github.com/nimezhu/data"
 	"github.com/zserge/lorca"
+)
+
+const (
+	VERSION = "0.0.1"
+	DIR     = ".cnbData"
 )
 
 type nbRunner struct {
 	sync.Mutex
-	data *nbWb
-}
-type nbWb struct { //string sheets
-	SheetNames []string
-	Sheets     map[string][][]string
+	data *data.SimpleWorkbook
 }
 
 //TODO fucntion for NbConfig
@@ -40,7 +42,9 @@ func (c *nbRunner) Run() {
 	c.Lock()
 	defer c.Unlock()
 	fmt.Println(c.data.SheetNames)
-	fmt.Println("Run", c.data.Sheets["data2"][1][2])
+	fmt.Println("Run")
+	//di := data.ParseSimpleWb(c.data)
+	startServer(c.data, 8611)
 	//TODO Start Runner Data Loader
 	//TODO Start Runner Data Checker
 }
