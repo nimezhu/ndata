@@ -1,6 +1,6 @@
 #!/bin/sh
 
-APP=nbgui
+APP=ndata
 APPDIR=${APP}_0.0.1
 
 mkdir -p $APPDIR/usr/bin
@@ -16,7 +16,7 @@ cp icons/icon.png $APPDIR/usr/share/icons/hicolor/256x256/apps/${APP}.png
 
 cat > $APPDIR/usr/share/applications/${APP}.desktop << EOF
 [Desktop Entry]
-Version=1.0
+Version=0.0.1
 Type=Application
 Name=$APP
 Exec=$APP
