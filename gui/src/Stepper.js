@@ -11,6 +11,8 @@ import Input from "@material-ui/core/Input";
 import parseExcel from "./tools/parseExcel"
 
 import Sheets from "./tools/Sheets.js"
+
+import ILog from "./ILog.js"
 const useStyles = makeStyles(theme => ({
     root: {
         width: '100%',
@@ -36,6 +38,11 @@ export default function HorizontalLabelPositionBelowStepper() {
     const [data, setData] = React.useState([]);
     const steps = getSteps();
 
+    function handleOpen(){
+        window.open("https://vis.nucleome.org/v1/main.html?initedLayout=hubs")
+        setActiveStep(3)
+    }
+
     function getStepContent(stepIndex) {
         switch (stepIndex) {
             case 0:
@@ -44,33 +51,32 @@ export default function HorizontalLabelPositionBelowStepper() {
             <Typography component="div">
                 <Input type="file" id="file" inputProps={{"accept":"xlsx"}} onChange={handleReadFile}/>
           </Typography>
-            <Typography component="div">
-                <Sheets data={data}/>
-          </Typography>
           </Typography>);
             case 1:
                 return <Typography component="div">
-                    <Button variant="outlined" onClick={handleRun}>Run</Button>
+                <Button variant="outlined" onClick={handleRun}>Run</Button>
 
             <Typography component="div">
-                    TODO Log...
             </Typography>
                     </Typography>;
             case 2:
-                return 'Browsing your data in Nucleome Browser';
+                return (<Typography component="div">
+                <Button variant="outlined" onClick={handleOpen}>Open Nucleome Browser</Button>
+                </Typography>);
+            case 3: return (<Typography component="div">
+            <Button variant="outlined" onClick={handleReset}>Reset</Button>
+            </Typography>)
             default:
                 return 'Uknown stepIndex';
         }
     }
-
     function handleRun(e) {
-        console.log("TODO RUN SERVER")
         try {
             window.nbRun()
         } catch(e) {
-            console.log("nbRun function not found")
+            window.nbLog("nbRun function not found")
         }
-        setNextStepReady(1)
+        setActiveStep(2)
     }
 
     function handleReadFile(e) {
@@ -84,24 +90,13 @@ export default function HorizontalLabelPositionBelowStepper() {
                 setData(workbook)
             }
             reader.readAsBinaryString(files[0]);
-
-            setNextStepReady(1)
+            setActiveStep(1)
         }
-    }
-
-    function handleNext() {
-        setActiveStep(prevActiveStep => prevActiveStep + 1);
-        if (activeStep === steps.length - 1) {
-            window.open("https://vis.nucleome.org", "_blank")
-        }
-        setNextStepReady(0)
-    }
-
-    function handleBack() {
-        setActiveStep(prevActiveStep => prevActiveStep - 1);
     }
 
     function handleReset() {
+        window.nbStop();
+        setData([])
         setActiveStep(0);
     }
 
@@ -115,28 +110,13 @@ export default function HorizontalLabelPositionBelowStepper() {
         ))}
       </Stepper>
       <div>
-        {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}>All steps completed</Typography>
-            <Button onClick={handleReset}>Reset</Button>
-          </div>
-        ) : (
-          <div>
-            <div>
-              <Button
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                className={classes.backButton}
-              >
-              Back
-              </Button>
-              <Button variant="contained" color="primary" onClick={handleNext} disabled={nextStepReady === 0 && activeStep !== steps.length - 1}>
-                {activeStep === steps.length - 1 ? 'Open Nucleome Browser' : 'Next'}
-              </Button>
-            </div>
             <Typography className={classes.instructions} component="div">{getStepContent(activeStep)}</Typography>
           </div>
-        )}
       </div>
+       <div>
+        <ILog />
+        <Sheets data={data}/>
+       </div>
     </div>);
 }

@@ -14,14 +14,9 @@ function Sheet(props) {
     } = props
     return (
         <Paper>
-        <Typography component="div">
-           Under Construction... 
-        </Typography>
-        <Typography>
-           Rows Number: {data.length-1}
-        </Typography>
         <Table>
             <TableHead>
+           Rows Number: {data.length-1}
             <TableRow>
             {
             data[0].map((cell) => {

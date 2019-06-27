@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	"github.com/gorilla/mux"
 	"github.com/nimezhu/box"
 	"github.com/nimezhu/data"
@@ -31,13 +33,9 @@ func startServer(wb *data.SimpleWorkbook, port int) (*box.Box, error) {
 	idxRoot := s.InitIdxRoot(root) //???
 	l := data.NewLoader(idxRoot)
 	l.Plugins["tsv"] = nbdata.PluginTsv
-	/*
-		if uri != "" {
-			l.Load(uri, router)
-		}
-	*/
 	l.LoadWorkbook(wb, router)
 	go s.StartLocalServer(port, router, &corsOptions)
-	//s.Stop TODO
+	log.Println("Data Service Ready")
+
 	return s, nil
 }
