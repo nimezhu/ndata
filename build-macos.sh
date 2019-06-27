@@ -1,8 +1,9 @@
 #!/bin/sh
 
 APP="NbGUI.app"
-mkdir -p $APP/Contents/{MacOS,Resources}
-go build -o $APP/Contents/MacOS/nbgui
+mkdir -p $APP/Contents/MacOS
+mkdir -p $APP/Contents/Resources
+env CGO_ENABLED=0 GOARCH=amd64 GOOS=darwin go build -o $APP/Contents/MacOS/nbgui
 cat > $APP/Contents/Info.plist << EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -17,5 +18,5 @@ cat > $APP/Contents/Info.plist << EOF
 </dict>
 </plist>
 EOF
-#cp icons/icon.icns $APP/Contents/Resources/icon.icns
+cp icons/icon.icns $APP/Contents/Resources/icon.icns
 find $APP
