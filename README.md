@@ -34,10 +34,12 @@ Then follow the steps in GUI Application to add input file and start data servic
 
 ## Input Excel 
 ### Format
-The input for Nucleome Data is a simplified version for [trackHub](https://genome.ucsc.edu/goldenpath/help/hgTrackHubHelp.html) format. 
+The input for Nucleome Data is a simplified Excel/Sheets version for [trackHub](https://genome.ucsc.edu/goldenpath/help/hgTrackHubHelp.html) format. 
 
+For each track, we just need to know what is its name and where the file is.
 
-### A Encode Case
+“shortLabel” , “uri,metaLink,longLabel”
+
 
 
 ## Manage data
