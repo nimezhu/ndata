@@ -29,7 +29,7 @@ in Windows
 
 Just double click `ndata.exe`.
 
-Then follow the steps to add input file and start data service.
+Then follow the steps in GUI Application to add input file and start data service.
 
 
 ## Input Excel 
@@ -43,5 +43,5 @@ The input for Nucleome Data is a simplified version for [trackHub](https://genom
 ## Manage data
 
 ### Remote bigWig and bigBed Indexes
-*Nucleome Data* will create a directory `.cnbData` in your `$HOME` directory. All the remote bigWig and bigBed's indexes will be fetched and stored into `.cnbData/index` according to the URIs. On average the index file size is one percent of the original file. Unfortunately these local index won't be automatically updated if the file in corresponding web link changes. If that happens, please delete the corresponding index file manually. 
+*Nucleome Data* will create a directory `.cnbData` in your `$HOME` directory. All the remote bigWig and bigBed's indexes will be fetched and stored into `.cnbData/index` according to the URIs. On average the index file size is one percent of the original file. Unfortunately these local index won't be automatically updated if the file in corresponding web link changes. If that happens, please delete the index file manually. 
 
