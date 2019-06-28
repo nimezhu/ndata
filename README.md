@@ -1,28 +1,33 @@
 # Nucleome Data
 
+
 *Nucleome Data* is a GUI Client Application for *Nucleome Browser* users to host bigWig, bigBed and .hic data from local drive or internet, and browsing them in *Nucleome Browser* with other available data. 
 
 ## Quick Start
-Please download executable binary file and the example input file. This example file contains a web link of hg19 MTA ChIP Seq peaks bigBed file from Encode Project data. With only a few clicks, user can browsing this data 
+Please download the example file and the correspoding executable binary file for your computer OS. This example file contains a web link of hg19 MTA ChIP Seq peaks bigBed file from Encode Project data. In this case, with only a few clicks, user can browsing this data　in *Nucleome Browser*.
 
-- Download example input file
-[Example Input File](https://vis.nucleome.org/static/ndata/cnb.xlsx)
+### Download example input file
+- [Example Input File](https://vis.nucleome.org/static/ndata/cnb.xlsx)
 
-- Download Program Links
+### Download Program Links
 
-[![Linux64](https://img.shields.io/badge/binary-linux-green.svg?style=flat)](https://vis.nucleome.org/static/ndata/current/linux/ndata)
-[![Windows](https://img.shields.io/badge/binary-win-blue.svg?style=flat)](https://vis.nucleome.org/static/ndata/current/win64/ndata.exe)
-[![MacOS](https://img.shields.io/badge/binary-macos-yellow.svg?style=flat)](https://vis.nucleome.org/static/ndata/current/mac/ndata)
+- [Linux](https://vis.nucleome.org/static/ndata/current/linux/ndata)
 
-- Start Program
+- [Windows](https://vis.nucleome.org/static/ndata/current/win64/ndata.exe)
 
-Mac or Linux
+- [MacOS](https://vis.nucleome.org/static/ndata/current/mac/ndata)
+
+### Start Program
+
+In Mac or Linux, start a terminal and change work directory to where you put the `ndata` file. Start this program with command line below.
 
 `chmod 755 ndata`
 
 `./ndata`
 
-Windows :  Just double click ndata.exe.
+in Windows 
+
+Just double click `ndata.exe`.
 
 
 
