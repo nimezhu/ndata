@@ -5,7 +5,8 @@
 If you are looking for a command line tool to host data in servers instead of your personal computer, please visit this website [Nucleome Server](https://github.com/nimezhu/cnbData) instead.
 
 ## Dependencies
-[Google Chrome](https://www.google.com/chrome)
+
+- Requires Chrome/Chromium >= 70 to be installed.
 
 ## Quick Start
 Please download the example file and the correspoding executable binary file for your computer OS. This example file for demostration contains a web link of hg19 MTA ChIP Seq peaks bigBed file from [Encode Project](https://www.encodeproject.org/). In this case, with only a few clicks, user can browsing these peaks in *Nucleome Browser*.
