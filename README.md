@@ -42,11 +42,13 @@ Then follow the steps in GUI Application to add input file and start data servic
 ### Format
 The input for Nucleome Data is a simplified Excel/Sheets version for [trackHub](https://genome.ucsc.edu/goldenpath/help/hgTrackHubHelp.html) format. 
 
-Two reserved sheets are required for input excel file. One is “Config”,  which store the configuration variable values. Currently, `root` variable is the only variable needed. It stores the root path for you store all track data files. It is designed for user conveniently migrating data between computers. All the URIs in other sheets will be the relative path to `root` if their URI are not start with `http` or `https`.
+Two sheets are required for input excel file. 
+
+The first one is “Config”,  which store the configuration variable values. Currently, `root` variable is the only variable needed. It stores the root path for you store all track data files. It is designed for user conveniently migrating data between computers. All the URIs in other sheets will be the relative path to `root` if their URI are not start with `http` or `https`.
 
 ![Sheet Config Example](https://nbrowser.github.io/image/sheetConfig.png)
 
-The other sheet is “Index”, which stores the configuration information of all other sheets.
+The second one is “Index”, which stores the configuration information of all other sheets.
 
 ![Sheet Index Example](https://nbrowser.github.io/image/sheetIndex.png)
 
@@ -54,7 +56,7 @@ For each track data sheet, if using four columns, the columns name should be “
 
 If using two columns, the column name could be any string user defined. Just filled in the column index into the fourth and the fifth column accordingly. 
 
-In sheet "Index", those entries which Id starts with “#” will be ignored.Column "Type" is a reserve entry for future data server. Currently, just use "track" in this column. It support bigWig, bigBed and .hic.
+In sheet "Index", those entries which Id starts with “#” will be ignored.Column "Type" is a reserve entry for future data services. Currently, please use "track" in this column. It support bigWig, bigBed and .hic.
 
 #### Simple Name and URI
 ![Sheet Data Example](https://nbrowser.github.io/image/sheetSimpleData.png)
